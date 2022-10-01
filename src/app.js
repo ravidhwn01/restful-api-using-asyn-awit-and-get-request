@@ -37,6 +37,19 @@ app.get("/students", async (req, res) => {
     res.send(e);
   }
 });
+app.get("/students/:id", async (req, res) => {
+  try {
+    const _id = await req.params.id; 
+    const stdata = await Student.findById(_id);
+    if (!stdata) {
+      return res.status(404).send();
+    } else{
+      res.send(stdata)
+    }
+  } catch (e) {
+    res.send(e);
+  }
+});
 
 app.listen(port, () => {
   console.log(`connection is setup at port ${port}`);
