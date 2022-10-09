@@ -105,7 +105,7 @@ res.send(updateStudent);
 } )
 
 
-
+ // express routing padni hai  😍
 app.listen(port, () => {
   console.log(`connection is setup at port ${port}`);
 });
