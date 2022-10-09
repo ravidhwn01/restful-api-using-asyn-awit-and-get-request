@@ -89,6 +89,21 @@ app.delete("/students/:id", async (req, res)=>{
   }
 })
 
+// update the student by its id
+// not working 😑
+ 
+app.patch("/students/:id" , async (req,res)=>{
+  try {
+    const _id = res.params.id;
+const updateStudent = await Student.findByIdAndUpdate(_id);
+res.send(updateStudent);
+    
+  } catch (e) {
+    res.status(404).send(e);
+  }
+
+} )
+
 
 
 app.listen(port, () => {
